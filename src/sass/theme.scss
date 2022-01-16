@@ -1,8 +1,15 @@
-// Import all partials
+// Custom SCSS Variables
+@import "variables";
+
+// Import Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Import Custom SCSS
+// Import Partials
 @import "partials/header";
 @import "partials/aside";
 @import "partials/footer";
 
-// Import all components
+// Import Components
 @import "components/navbar";
 @import "components/carousel";

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start:dev": "webpack serve"
+    "start:dev": "webpack serve",
+    "build": "webpack"
   },
   "keywords": [
     "monoisam"

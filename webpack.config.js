@@ -5,7 +5,7 @@ const TerserPlugin = require("terser-webpack-plugin"); // JS Minify as like ugli
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Extract Css into separate file
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // Clean dir subfolder and files
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // Generate html file with updated file resources among with hash
-const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
+// const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
 
 // We need Nodes fs module to read directory contents
 const fs = require("fs");
@@ -17,7 +17,7 @@ let files = fs.readdirSync(templateDir);
 
 files.forEach((file) => {
 	if (file.match(/\.html$/)) {
-		let filename = file.substring(0, file.length - 4);
+		let filename = file.substring(0, file.length - 5);
 		templates.push(
 			new HtmlWebpackPlugin({
 				template: templateDir + "/" + filename + ".html",
@@ -108,9 +108,11 @@ module.exports = {
 
 	plugins: [
 		new TerserPlugin(),
+
 		new MiniCssExtractPlugin({
 			filename: "css/theme.css",
 		}),
+
 		new CleanWebpackPlugin({
 			// to remove other dir subfolder and files at once before build
 			cleanOnceBeforeBuildPatterns: ["**/*", path.join(process.cwd(), "dist/**/*")],
@@ -118,8 +120,10 @@ module.exports = {
 
 		...templates,
 
-		new HtmlWebpackPugPlugin({
-			adjustIndent: true,
-		}),
+		// new HtmlWebpackPugPlugin({
+		// 	adjustIndent: true,
+		// }),
+
+		// new HtmlWebpackPlugin(),
 	],
 };
